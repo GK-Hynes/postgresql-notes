@@ -40,9 +40,9 @@ pgAdmin is an open source, web-based GUI for managing PostgreSQL.
 
 ### SELECT
 
-SELECT is the most common statement used. It allows you to retrieve information from a table.
+`SELECT` is the most common statement used. It allows you to retrieve information from a table.
 
-SELECT can be combined with other statements to perform more complex queries.
+`SELECT` can be combined with other statements to perform more complex queries.
 
 ```SQL
 SELECT column_name FROM table_name
@@ -51,3 +51,35 @@ SELECT column_name FROM table_name
 You can use `*` to select all the columns from a table.
 
 In general, it's not good practice to use `*` if you don't need all columns. It automatically queues everything, increasing traffic between the dataase server and the application, which can slow down the retrieval of results.
+
+### SELECT DISTINCT
+
+The `DISTINCT` keyword can be used to only return distinct values in a column if the column has duplicate values.
+
+```SQL
+SELECT DISTINCT column_name FROM table_name
+```
+
+You can add parentheses to the column for clarity. They are necessary when adding more calls, such as `COUNT`.
+
+```SQL
+SELECT DISTINCT(column_name) FROM table_name
+```
+
+`DISTINCT` is useful for finding unique values in a column.
+
+### COUNT
+
+The `COUNT` function returns the number of input rows that match a specific condition of a query.
+
+You can apply `COUNT` to a specific column or pass `COUNT(*)`. These should produce the same results sicne each column has the same number of rows.
+
+```SQL
+SELECT COUNT(column_name) FROM table_name
+```
+
+`COUNT` is more useful when combined with other commands, such as `DISTINCT` to get the number of unique values in a column.
+
+```SQL
+SELECT COUNT(DISTINCT column_name) FROM table_name
+```
