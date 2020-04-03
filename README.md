@@ -89,7 +89,7 @@ SELECT COUNT(DISTINCT column_name) FROM table_name
 The `WHERE` statement allows you to specify conditions on columns for the rows to be returned.
 
 ```SQL
-SELECT column1, column2 FROM table_name WHERE conditions
+SELECT column_1, column_2 FROM table_name WHERE conditions
 ```
 
 The `WHERE` clause appears immediately after the `FROM` clause of the `SELECT` statement.
@@ -100,4 +100,24 @@ The standard comparison operators apply. Not equal to can be represented by `<>`
 
 Logical operators (`AND`, `OR`, `NOT`) allow you to combine multiple comparison operators.
 
+### ORDER BY
 
+PostgreSQL sometimes returns the same request query results in a different order.
+
+You can use `ORDER BY` to sort rows based on a column value, in either ascending or descending order.
+
+```SQL
+SELECT column_1, column_2 FROM table_name ORDER BY column_1 ASC / DESC
+```
+
+`ORDER BY` goes towards the end of the query since you want to do selecting and filtering first before sorting.
+
+`ASC` = ascending order. `DESC` = descending order. If left blank, `ORDER BY` uses `ASC` by default.
+
+You can `ORDER BY` multiple columns in the order you provide them. This helps when the first column has duplicate entries. These can then be ordered by the second column you specify.
+
+```SQL
+SELECT column_1, column_2, column_3 FROM table_name ORDER BY column_1, column_3
+```
+
+Technically, you can `ORDER BY` columns that you do not explicitly `SELECT`, but it's less readable.
