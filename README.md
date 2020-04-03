@@ -83,3 +83,21 @@ SELECT COUNT(column_name) FROM table_name
 ```SQL
 SELECT COUNT(DISTINCT column_name) FROM table_name
 ```
+
+### SELECT WHERE
+
+The `WHERE` statement allows you to specify conditions on columns for the rows to be returned.
+
+```SQL
+SELECT column1, column2 FROM table_name WHERE conditions
+```
+
+The `WHERE` clause appears immediately after the `FROM` clause of the `SELECT` statement.
+
+The conditions filter the rows returned from the `SELECT` statment.
+
+The standard comparison operators apply. Not equal to can be represented by `<>` or `!=`
+
+Logical operators (`AND`, `OR`, `NOT`) allow you to combine multiple comparison operators.
+
+
