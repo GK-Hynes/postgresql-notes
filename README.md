@@ -167,3 +167,13 @@ date BETWEEN '2007-01-01' AND '2007-02-01'
 ```
 
 When using `BETWEEN` with dates that include timestamp information, pay attention to using `BETWEEN` versus <=, >= comparison operators, since a datetime starts at 0:00.
+
+### IN
+
+In certain cases you want to check for multiple possible value options, for example, if a user's name appears `IN` a list of known names.
+
+Use the `IN` operator to create a condition that checks if a value is included in a list of multiple options.
+
+```SQL
+value IN (option_1, option_2, ... option_n)
+```
