@@ -177,3 +177,44 @@ Use the `IN` operator to create a condition that checks if a value is included i
 ```SQL
 value IN (option_1, option_2, ... option_n)
 ```
+
+### LIKE and ILIKE
+
+The `LIKE` operator lets you perform pattern matching against string data with the use of wildcard characters:
+
+`%` matches any sequences of characters (including none)
+
+`_` matches any single character
+
+For example, all names that begin with an 'A'
+
+```SQL
+WHERE name LIKE 'A%'
+```
+
+All names that end with an 'a'
+
+```SQL
+WHERE name LIKE '%a'
+```
+
+`LIKE` is case-sensitive, `ILIKE` is case-insensitive.
+
+```SQL
+WHERE title LIKE 'Mission Impossible _'
+```
+
+You can use multiple underscores for multiple characters:
+
+```SQL
+WHERE value LIKE 'Version#__'
+```
+
+You can combine pattern matching operators.
+
+```SQL
+WHERE name LIKE '_her%'
+```
+
+PostgreSQL supports [full regex compatibilities](https://www.postgresql.org/docs/current/functions-matching.html).
+
