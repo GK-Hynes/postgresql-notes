@@ -121,3 +121,15 @@ SELECT column_1, column_2, column_3 FROM table_name ORDER BY column_1, column_3
 ```
 
 Technically, you can `ORDER BY` columns that you do not explicitly `SELECT`, but it's less readable.
+
+### LIMIT
+
+The `LIMIT` command lets you limit the number of rows returned for a query. It's useful when you don't want to return every row in a table but only view the top few rows to get an idea of the table layout.
+
+It's also useful when combined with `ORDER BY`.
+
+`LIMIT` goes at the end of a query request and is the last command to be executed.
+
+```SQL
+SELECT * FROM table_name LIMIT 1;
+```
