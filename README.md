@@ -133,3 +133,37 @@ It's also useful when combined with `ORDER BY`.
 ```SQL
 SELECT * FROM table_name LIMIT 1;
 ```
+
+### BETWEEN
+
+The BETWEEN operator can be used to match a value against a range of values (inclusive of the upper and lower values).
+
+```SQL
+value BETWEEN low AND high
+```
+
+This is the same as
+
+```SQL
+value >= low AND <= high
+```
+
+You can also combine `BETWEEN` with the `NOT` operator (exclusive of the upper and lower values).
+
+```SQL
+value NOT BETWEEN low AND high
+```
+
+Which would be the same as
+
+```SQL
+value < low OR value > high
+```
+
+The `BETWEEN` operator can also be used with date. You need to format dates in the ISO 8601 standard format: YYYY-MM-DD
+
+```SQL
+date BETWEEN '2007-01-01' AND '2007-02-01'
+```
+
+When using `BETWEEN` with dates that include timestamp information, pay attention to using `BETWEEN` versus <=, >= comparison operators, since a datetime starts at 0:00.
