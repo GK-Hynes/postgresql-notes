@@ -45,7 +45,7 @@ pgAdmin is an open source, web-based GUI for managing PostgreSQL.
 `SELECT` can be combined with other statements to perform more complex queries.
 
 ```SQL
-SELECT column_name FROM table_name
+SELECT column_name FROM table_name;
 ```
 
 You can use `*` to select all the columns from a table.
@@ -57,13 +57,13 @@ In general, it's not good practice to use `*` if you don't need all columns. It 
 The `DISTINCT` keyword can be used to only return distinct values in a column if the column has duplicate values.
 
 ```SQL
-SELECT DISTINCT column_name FROM table_name
+SELECT DISTINCT column_name FROM table_name;
 ```
 
 You can add parentheses to the column for clarity. They are necessary when adding more calls, such as `COUNT`.
 
 ```SQL
-SELECT DISTINCT(column_name) FROM table_name
+SELECT DISTINCT(column_name) FROM table_name;
 ```
 
 `DISTINCT` is useful for finding unique values in a column.
@@ -75,13 +75,13 @@ The `COUNT` function returns the number of input rows that match a specific cond
 You can apply `COUNT` to a specific column or pass `COUNT(*)`. These should produce the same results sicne each column has the same number of rows.
 
 ```SQL
-SELECT COUNT(column_name) FROM table_name
+SELECT COUNT(column_name) FROM table_name;
 ```
 
 `COUNT` is more useful when combined with other commands, such as `DISTINCT` to get the number of unique values in a column.
 
 ```SQL
-SELECT COUNT(DISTINCT column_name) FROM table_name
+SELECT COUNT(DISTINCT column_name) FROM table_name;
 ```
 
 ### SELECT WHERE
@@ -89,7 +89,7 @@ SELECT COUNT(DISTINCT column_name) FROM table_name
 The `WHERE` statement allows you to specify conditions on columns for the rows to be returned.
 
 ```SQL
-SELECT column_1, column_2 FROM table_name WHERE conditions
+SELECT column_1, column_2 FROM table_name WHERE conditions;
 ```
 
 The `WHERE` clause appears immediately after the `FROM` clause of the `SELECT` statement.
@@ -107,7 +107,7 @@ PostgreSQL sometimes returns the same request query results in a different order
 You can use `ORDER BY` to sort rows based on a column value, in either ascending or descending order.
 
 ```SQL
-SELECT column_1, column_2 FROM table_name ORDER BY column_1 ASC / DESC
+SELECT column_1, column_2 FROM table_name ORDER BY column_1 ASC / DESC;
 ```
 
 `ORDER BY` goes towards the end of the query since you want to do selecting and filtering first before sorting.
@@ -117,7 +117,7 @@ SELECT column_1, column_2 FROM table_name ORDER BY column_1 ASC / DESC
 You can `ORDER BY` multiple columns in the order you provide them. This helps when the first column has duplicate entries. These can then be ordered by the second column you specify.
 
 ```SQL
-SELECT column_1, column_2, column_3 FROM table_name ORDER BY column_1, column_3
+SELECT column_1, column_2, column_3 FROM table_name ORDER BY column_1, column_3;
 ```
 
 Technically, you can `ORDER BY` columns that you do not explicitly `SELECT`, but it's less readable.
@@ -243,7 +243,7 @@ Aggregate function calls happen only in the `SELECT` clause or the `HAVING` clau
 `GROUP BY` lets you aggregate data and apply functions to better understand how data is distributed per category.
 
 ```SQL
-SELECT category_col , AGG(data_col) FROM table_name GROUP BY category_col
+SELECT category_col , AGG(data_col) FROM table_name GROUP BY category_col;
 ```
 
 The `GROUP BY` clause must appear right after a `FROM` or `WHERE` statement.
@@ -253,3 +253,15 @@ In the `SELECT` statment, columns must either have an aggregate function or be i
 `WHERE` statements should not refer to the aggregation result.
 
 If you want to sort results based on the aggregate, make sure to reference the entire function.
+
+### HAVING
+
+The `HAVING` clause lets you filter **after** an aggregation has taken place.
+
+You can't use `WHERE` to filter based off of aggregate results, because those happen **after** a `WHERE` is executed.
+
+`HAVING` lets you use the aggregate result as a filter along with a `GROUP BY`.
+
+```SQL
+SELECT category_col , AGG(column_2) FROM table_name GROUP BY column_1 HAVING condition;
+```
