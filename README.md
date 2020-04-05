@@ -218,3 +218,26 @@ WHERE name LIKE '_her%'
 
 PostgreSQL supports [full regex compatibilities](https://www.postgresql.org/docs/current/functions-matching.html).
 
+## Aggregate Functions
+
+An aggregate function takes multiple inputs and returns a single output. [Docs for Aggregate Functions](https://www.postgresql.org/docs/current/functions-aggregate.html)
+
+The most common aggregate functions are:
+
+- `AVG()` - returns the average value
+- `COUNT()` - returns the number of values
+- `MAX()` - returns the maximum value
+- `MIN()` - returns the minimum value
+- `SUM()` - returns the sum of all values
+
+Aggregate function calls happen only in the `SELECT` clause or the `HAVING` clause.
+
+#### Note
+
+`AVG()` returns a floating point value several decimal places long. You can use `ROUND()` to specify precision after the decimal.
+
+`COUNT()` returns the number of rows, so by convention you can just use `COUNT(*)`.
+
+### GROUP BY
+
+`GROUP BY` lets you aggregate data and apply functions to better understand how data is distributed per category.
