@@ -220,7 +220,7 @@ PostgreSQL supports [full regex compatibilities](https://www.postgresql.org/docs
 
 ## Aggregate Functions
 
-An aggregate function takes multiple inputs and returns a single output. [Docs for Aggregate Functions](https://www.postgresql.org/docs/current/functions-aggregate.html)
+An aggregate function takes multiple inputs and returns a single output. [Docs for Aggregate Functions](https://www.postgresql.org/docs/current/functions-aggregate.html).
 
 The most common aggregate functions are:
 
@@ -241,3 +241,15 @@ Aggregate function calls happen only in the `SELECT` clause or the `HAVING` clau
 ### GROUP BY
 
 `GROUP BY` lets you aggregate data and apply functions to better understand how data is distributed per category.
+
+```SQL
+SELECT category_col , AGG(data_col) FROM table_name GROUP BY category_col
+```
+
+The `GROUP BY` clause must appear right after a `FROM` or `WHERE` statement.
+
+In the `SELECT` statment, columns must either have an aggregate function or be in the `GROUP BY` call.
+
+`WHERE` statements should not refer to the aggregation result.
+
+If you want to sort results based on the aggregate, make sure to reference the entire function.
