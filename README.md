@@ -289,3 +289,19 @@ SELECT SUM(column) AS new_name FROM table;
 ```
 
 The `AS` operator gets executed at the very end of a query, meaning that you can't use the `ALIAS` inside a `WHERE` or `HAVING` clause. You'll have to use the original column name when filtering or comparing.
+
+### INNER JOINS
+
+An `INNER JOIN` will result with the set of records that match in both tables. Think of the overlap in a Venn diagram.
+
+```SQL
+SELECT * FROM TableA INNER JOIN TableB ON TableA.col_match = TableB.col_match;
+```
+
+You can remove duplicate columns by specifying only the columns you want.
+
+```SQL
+SELECT reg_id, Logins.name, log_id FROM Registrations INNER JOIN Logins ON Registrations.name = Logins.name;
+```
+
+If you write just `JOIN`, PostgreSQL will treat it as an `INNER JOIN` but for readability use `INNER JOIN`.
