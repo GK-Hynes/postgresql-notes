@@ -240,7 +240,9 @@ Aggregate function calls happen only in the `SELECT` clause or the `HAVING` clau
 
 ### GROUP BY
 
-`GROUP BY` lets you aggregate data and apply functions to better understand how data is distributed per category.
+The `GROUP BY` clause divides the rows returned by the `SELECT` statement into groups.
+
+For each group, you can apply an aggregate function, for example, to calculate the sum of items or count the number of items in the groups.
 
 ```SQL
 SELECT category_col , AGG(data_col) FROM table_name GROUP BY category_col;
@@ -265,3 +267,25 @@ You can't use `WHERE` to filter based off of aggregate results, because those ha
 ```SQL
 SELECT category_col , AGG(column_2) FROM table_name GROUP BY column_1 HAVING condition;
 ```
+
+## JOINS
+
+`JOINS` let you combine information from multiple tables.
+
+The main reason for the different `JOIN` types is to decide how to deal with information only present in one of the joined tables.
+
+### AS
+
+The `AS` clause lets you create an "alias" for a column or result.
+
+```SQL
+SELECT column AS new_name FROM table;
+```
+
+or
+
+```SQL
+SELECT SUM(column) AS new_name FROM table;
+```
+
+The `AS` operator gets executed at the very end of a query, meaning that you can't use the `ALIAS` inside a `WHERE` or `HAVING` clause. You'll have to use the original column name when filtering or comparing.
