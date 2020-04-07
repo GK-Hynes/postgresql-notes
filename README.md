@@ -292,7 +292,7 @@ The `AS` operator gets executed at the very end of a query, meaning that you can
 
 ### INNER JOINS
 
-An `INNER JOIN` will result with the set of records that match in both tables. Think of the overlap in a Venn diagram.
+An `INNER JOIN` will result with the set of records that match in both tables. Think of the overlap in a Venn diagram. See [Jeff Atwood's post](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/)
 
 ```SQL
 SELECT * FROM TableA INNER JOIN TableB ON TableA.col_match = TableB.col_match;
@@ -305,3 +305,21 @@ SELECT reg_id, Logins.name, log_id FROM Registrations INNER JOIN Logins ON Regis
 ```
 
 If you write just `JOIN`, PostgreSQL will treat it as an `INNER JOIN` but for readability use `INNER JOIN`.
+
+### OUTER JOINS
+
+`OUTER JOINS` let you specify how to deal with the values only present in one of the tables being joined.
+
+### FULL OUTER JOINS
+
+A `FULL OUTER JOIN` grabs everything whether it is present in one or both tables.
+
+```SQL
+SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.col_match = TableB.col_match;
+```
+
+You can qualify a `FULL OUTER JOIN` with a `WHERE` statement to only get rows unique to either table (the opposite of an `INNER JOIN`).
+
+```SQL
+SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.col_match = TableB.col_match WHERE TableA.id IS null OR TableB.id IS null;
+```
