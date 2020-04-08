@@ -300,7 +300,7 @@ The `AS` operator gets executed at the very end of a query, meaning that you can
 
 An `INNER JOIN` will result with the set of records that match in both tables. Think of the overlap in a Venn diagram. See [Jeff Atwood's post](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/)
 
-![Image of INNER JOIN by Jeff Atwood](https://blog.codinghorror.com/content/images/uploads/2007/10/6a0120a85dcdae970b012877702708970c-pi.png)
+![INNER JOIN](https://blog.codinghorror.com/content/images/uploads/2007/10/6a0120a85dcdae970b012877702708970c-pi.png)
 
 ```SQL
 SELECT * FROM TableA INNER JOIN TableB ON TableA.col_match = TableB.col_match;
@@ -322,13 +322,15 @@ If you write just `JOIN`, PostgreSQL will treat it as an `INNER JOIN` but for re
 
 A `FULL OUTER JOIN` grabs everything whether it is present in one or both tables.
 
+![FULL OUTER JOIN](https://blog.codinghorror.com/content/images/uploads/2007/10/6a0120a85dcdae970b012877702725970c-pi.png)
+
 ```SQL
 SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.col_match = TableB.col_match;
 ```
 
-![Image of FULL OUTER JOIN by Jeff Atwood](https://blog.codinghorror.com/content/images/uploads/2007/10/6a0120a85dcdae970b012877702725970c-pi.png)
-
 You can qualify a `FULL OUTER JOIN` with a `WHERE` statement to only get rows unique to either table (the opposite of an `INNER JOIN`).
+
+[FULL OUTER JOIN qualified by WHERE clause](https://blog.codinghorror.com/content/images/uploads/2007/10/6a0120a85dcdae970b012877702769970c-pi.png)
 
 ```SQL
 SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.col_match = TableB.col_match WHERE TableA.id IS null OR TableB.id IS null;
@@ -338,7 +340,7 @@ SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.col_match = TableB.col_mat
 
 A `LEFT OUTER JOIN` results in the set of records that are in the left table. If there is no match in the right table, the results are null.
 
-![Image of LEFT OUTER JOIN by Jeff Atwood](https://blog.codinghorror.com/content/images/uploads/2007/10/6a0120a85dcdae970b01287770273e970c-pi.png)
+![LEFT OUTER JOIN](https://blog.codinghorror.com/content/images/uploads/2007/10/6a0120a85dcdae970b01287770273e970c-pi.png)
 
 ```SQL
 SELECT * FROM TableA LEFT OUTER JOIN TableB ON TableA.col_match = TableB.col_match;
@@ -348,7 +350,7 @@ Table order matters for `LEFT OUTER JOINS` because you are specifying the left t
 
 You can qualify a `LEFT OUTER JOIN` with a `WHERE` statement, for example to get rows exclusive to the left table.
 
-![Image by Jeff Atwood of LEFT OUTER JOIN qualified by WHERE clause](https://blog.codinghorror.com/content/images/uploads/2007/10/6a0120a85dcdae970b012877702754970c-pi.png)
+![LEFT OUTER JOIN qualified by WHERE clause](https://blog.codinghorror.com/content/images/uploads/2007/10/6a0120a85dcdae970b012877702754970c-pi.png)
 
 ```SQL
 SELECT * FROM TableA LEFT OUTER JOIN TableB ON TableA.col_match = TableB.col_match WHERE TableB.id IS null;
