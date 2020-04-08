@@ -6,13 +6,21 @@ Notes on learning PostgreSQL with Jose Portilla's Complete SQL Bootcamp.
 
 Databases are systems that allow users to store and organize data.
 
-Spreadsheets:
+Compare spreadsheets and databases:
+
+- Tabs = tables
+- Columns = columns
+- Rows = rows
+
+But
+
+**Spreadsheets:**
 
 - Good for one-time analysis
 - Work for reasonably sized data sets
 - Can be used by untrained people
 
-Databases:
+**Databases:**
 
 - Data integrity
 - Can handle massive amounts of data
@@ -20,17 +28,15 @@ Databases:
 - Steps can be automated
 - Can support websites and apps
 
-Compare:
-
-- Tabs = tables
-- Columns = columns
-- Rows = rows
-
 ## PostgreSQL
 
-Free (open source)
-Widely used on the internet
-Corss-platform
+PostgreSQL is a free and open-source relational database management system.
+
+Benefits:
+
+- Open source
+- Widely used on the internet
+- Cross-platform
 
 ## pgAdmin
 
