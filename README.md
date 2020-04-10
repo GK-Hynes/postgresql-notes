@@ -355,3 +355,19 @@ You can qualify a `LEFT OUTER JOIN` with a `WHERE` statement, for example to get
 ```SQL
 SELECT * FROM TableA LEFT OUTER JOIN TableB ON TableA.col_match = TableB.col_match WHERE TableB.id IS null;
 ```
+
+### RIGHT OUTER JOINS
+
+A `RIGHT OUTER JOIN` is essentially the same as a `LEFT OUTER JOIN`, except the tables are switched. This would be the same as switching the table order in a `LEFT OUTER JOIN`.
+
+```SQL
+SELECT * FROM TableA RIGHT OUTER JOIN TableB ON TableA.col_match = TableB.col_match;
+```
+
+You can also qualify a `RIGHT OUTER JOIN` with a `WHERE` statement, for example to get rows exclusive to the right table.
+
+```SQL
+SELECT * FROM TableA RIGHT OUTER JOIN TableB ON TableA.col_match = TableB.col_match WHERE TableA.id IS null;
+```
+
+It depends on how you have the tables organized in your mind when it comes to choosing a `LEFT JOIN` or `RIGHT JOIN`.
