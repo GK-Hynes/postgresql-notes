@@ -371,3 +371,56 @@ SELECT * FROM TableA RIGHT OUTER JOIN TableB ON TableA.col_match = TableB.col_ma
 ```
 
 It depends on how you have the tables organized in your mind when it comes to choosing a `LEFT JOIN` or `RIGHT JOIN`.
+
+## More Advanced SQL Commands
+
+### Timestamps and Extract
+
+These functions, which report back time and date information, are more useful when creating tables and databases, rather than when querying a database.
+
+PostgreSQL can hold date and time information:
+
+- `TIME` - contains only time
+- `DATE` - contains only date
+- `TIMESTAMP` - Contains date and time
+- `TIMESTAMPTZ` - Contains date, time and timezone
+
+Consider your needs carefully when designing a table and database and choosing a time data type.
+
+Depending on the situation, you might not need the full level of `TIMESTAMPTZ`.
+
+Remember, you can always remove historical information but you can't add it.
+
+### Commands for checking times
+
+`SHOW TIMEZONE` will tell you what timezone you're in.
+
+`SELECT NOW()` gives you the timestamp information for right now.
+
+`SELECT TIMEOFDAY()` gives you a string describing the current date, time and timezone.
+
+`SELECT CURRENT_TIME` gives you the current time with timezone.
+
+`SELECT CURRENT_DATE` gives you the current date.
+
+### EXTRACT()
+
+The `EXTRACT()` function lets you "extract" or obtain a sub-component of a date value:
+
+- YEAR
+- MONTH
+- DAY
+- WEEK
+- QUARTER
+
+```SQL
+EXTRACT(YEAR FROM date_col)
+```
+
+### AGE()
+
+The `AGE()` function calculates and returns how old a given timestamp is.
+
+```SQL
+AGE(date_col)
+```
