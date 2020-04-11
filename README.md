@@ -424,3 +424,11 @@ The `AGE()` function calculates and returns how old a given timestamp is.
 ```SQL
 AGE(date_col)
 ```
+
+### TO_CHAR()
+
+The `TO_CHAR()` is a general function that converts data types to text, which is useful for timestamp formatting.
+
+```SQL
+TO_CHAR(date_col, 'mm-dd-yyyy')
+```
