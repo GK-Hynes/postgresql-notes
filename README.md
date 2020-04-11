@@ -432,3 +432,13 @@ The `TO_CHAR()` is a general function that converts data types to text, which is
 ```SQL
 TO_CHAR(date_col, 'mm-dd-yyyy')
 ```
+
+### Mathematical Functions and Operators
+
+Mathematical operations can be carried out between columns using mathematical operators such as `+-*/`.
+
+More complex calculations can make use of mathematical functions, such as `ROUND()`.
+
+```SQL
+SELECT ROUND(rental_rate/replacement_cost, 2) * 100 FROM film;
+```
