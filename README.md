@@ -442,3 +442,17 @@ More complex calculations can make use of mathematical functions, such as `ROUND
 ```SQL
 SELECT ROUND(rental_rate/replacement_cost, 2) * 100 FROM film;
 ```
+
+### String Functions and Operators
+
+String functions and operators let you edit, combine and alter data columns. For example,
+
+`string || string` will concat strings.
+
+`LENGTH(string)` will give you the length of a string.
+
+`LEFT(string, n)` returns the first `n` characters in a string.
+
+`LOWER(string)` will lowercase a string.
+
+See the [PostreSQL documentation](https://www.postgresql.org/docs/12/functions-string.html) for more examples.
