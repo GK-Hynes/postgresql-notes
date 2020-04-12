@@ -456,3 +456,35 @@ String functions and operators let you edit, combine and alter data columns. For
 `LOWER(string)` will lowercase a string.
 
 See the [PostreSQL documentation](https://www.postgresql.org/docs/12/functions-string.html) for more examples.
+
+### Subquery
+
+A subquery lets you construct complex queries, essentially performing a query on the results of another query.
+
+The syntax involves two `SELECT` statements.
+
+For example, if you wanted to know which students scored above the average grade.
+
+```SQL
+SELECT student, grade FROM test_scores WHERE grade > (SELECT AVG(grade) FROM test_scores);
+```
+
+The subquery is performed first since it's inside the parenthesis.
+
+You can also use the `IN` operator in conjunction with a subquery to check against multiple returned results.
+
+```SQL
+SELECT student, grade FROM test_scores WHERE student IN (SELECT student FROM honor_roll_list);
+```
+
+If your subquery returns a single value, you can use a comparison operator. If your subquery returns a number of values, you'll need to use the `IN` operator.
+
+### EXISTS
+
+The `EXISTS` operator tests for the existence of rows in a subquery.
+
+Typically, a subquery is passed into the `EXISTS()` function to check if any rows are returned with the subquery.
+
+```SQL
+SELECT column_name FROM table_name WHERE EXISTS (SELECT colun_name FROm table_name WHERE condition);
+```
