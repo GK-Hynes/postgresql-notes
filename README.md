@@ -488,3 +488,45 @@ Typically, a subquery is passed into the `EXISTS()` function to check if any row
 ```SQL
 SELECT column_name FROM table_name WHERE EXISTS (SELECT colun_name FROm table_name WHERE condition);
 ```
+
+### Self Join
+
+A self join is a query in which a table is joined to itself.
+
+Self joins are useful for comparing values in a column of rows within the same table.
+
+A self join can be viewed as a join of two copies of the same table.
+
+The table is not actually copied, but SQL performs the command as though it were.
+
+There is no special keyword for a self join, it's standard `JOIN` syntax with the same table in both parts.
+
+However, when using a self join, it's necessary to use an alias for the table, otherwise the table names would be ambiguous.
+
+```SQL
+SELECT tableA.col, tableB.col
+FROM table AS tableA
+JOIN table AS tableB
+ON tableA.come_col = tableB.other_col;
+```
+
+For example, your want to use your employees table to print out the names of every employee and who they report to.
+
+| emp_id | name   | report_id |
+| ------ | ------ | --------- |
+| 1      | Andrew | 3         |
+| 2      | Chloe  | 1         |
+| 3      | Alexa  | 4         |
+
+```SQL
+SELECT emp.name, report.name AS rep
+FROM employees AS emp
+JOIN employees AS report ON
+emp.emp_id = report.report_id;
+```
+
+| name   | rep      |
+| ------ | -------- |
+| Andrew | Alexa    |
+| Chloe  | Andrew   |
+| Alexa  | Michelle |
