@@ -530,3 +530,31 @@ emp.emp_id = report.report_id;
 | Andrew | Alexa    |
 | Chloe  | Andrew   |
 | Alexa  | Michelle |
+
+## Creating Databases and Tables
+
+### Data Types
+
+The main data types in SQL are:
+
+- **Boolean** - true or false
+- **Character** - char, varchar and text
+- **Numeric** - integer and floating-point number
+- **Temporal** - date, time, timestamp and interval
+- **UUID** - universally unique identifier
+- **Array** - stores an array of strings, numbers, etc.
+- **JSON** - JavaScript Object Notation
+- **Hstore** - key-value pair
+- Special types, such as network addresses and geometric data.
+
+When creating databases and tables, carefully consider which data types are appropriate for the data to be stored.
+
+Review the [docs](https://www.postgresql.org/docs/12/datatype.html) to see the limits of different data types.
+
+For example, you might think of storing phone numbers as a `BIGINT` data type. But you might not need a number at all.
+
+Since you're not performing arithematic with the phone numbers, it makes more sense to store them as a `VARCHAR` data type instead. Also, leading zeros could cause issues, since 7 and 07 are treated the same numerically but are not the same phone number.
+
+Always search for best practices online.
+
+When creating a database and table, take your time to plan for long term storage. Remember, you can always remove historical information, but you can't go back in time and add it in.
