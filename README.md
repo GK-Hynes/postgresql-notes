@@ -558,3 +558,32 @@ Since you're not performing arithematic with the phone numbers, it makes more se
 Always search for best practices online.
 
 When creating a database and table, take your time to plan for long term storage. Remember, you can always remove historical information, but you can't go back in time and add it in.
+
+### Primary and Foreign Keys
+
+#### Primary Keys
+
+A primary key is a column, or group of columns, used to uniquely identify a row in a table.
+
+For example, customers could have a unique, non-null customer_id column as their primary key.
+
+Primary keys are also important since they allow us to easily discern what columns should be used for joining tables together.
+
+pgAdmin tells you if a column is a primary key by including PK in the column information.
+
+#### Foreign Keys
+
+A foreign key is a field, or group of fields, in a table that uniquely identify a row in another table.
+
+A foreign key is defined in a table that references the primary key of the other table.
+
+The table that contains the foreign key is called the referencing table or child table.
+
+The table which the foreign key references is called the referenced table or parent table.
+
+A table can have multiple foreign keys depending on its relationships with other tables.
+
+For example, in a dvd rental database payment table, each payment row would have a unique payment_id (a primary key) and identify the customer who made the payment through a customer_id (a foreign key since it references the customer table's primary key).
+
+When creating tables and defining columns, we can use constraints to define columns as being a primary key, or attaching a foreign key relationship to another table.
+
