@@ -587,3 +587,41 @@ For example, in a dvd rental database payment table, each payment row would have
 
 When creating tables and defining columns, we can use constraints to define columns as being a primary key, or attaching a foreign key relationship to another table.
 
+### Constraints
+
+Constraints are the rules enforced on data columns on a table.
+
+They are used to prevent invalid data from being entered into the database.
+
+This ensures the accuracy and reliability of the data in the database.
+
+Constraints can generally be divided into two main categories:
+
+**Column Constraints** - these constrain the data in a column to adhere to certain conditions.
+
+**Table Constraints** - these are applied to the entire table rather than to an individual column.
+
+Some of the most common column constraints are:
+
+**NOT NULL** Constraint - this ensures that a column cannot have a NULL value. For example, requiring an email address.
+
+**UNIQUE** Constraint - this ensures that all values in a column are different. For example, each customer having a unique id.
+
+**PRIMARY key** - uniquely identifies each row/record in a table.
+
+**FOREIGN key** - constrains data based on columns in other tables.
+
+**CHECK** Constraint - ensures that all values in a column satisfy certain conditions.
+
+**EXCLUSION** Constraint - ensures that if any two rows are compared on the specified column or expression using the specified operator, not all of these comparisons will return TRUE.
+
+Table Constraints include:
+
+**CHECK (condition)** - checks a condition when inserting or updating data.
+
+**REFERENCES** - constrain the value stored in the column that must exist in a column in another table.
+
+**UNIQUE (column_list)** - forces the values stored in the columns listed inside the parentheses to be unique.
+
+**PRIMARY KEY (column_list)** - allows you to define the primary key that consists of multiple columns.
+
