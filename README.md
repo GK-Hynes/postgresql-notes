@@ -657,3 +657,29 @@ A sequence is often used as the primary key column in a table.
 This is perfect for a primary key, because it logs unique integer entries for you automatically upon insertion.
 
 If a row is later removed, the column with the `SERIAL` data type will **not** adjust, marking the fact that a row was removed from the sequence. For example, 1,2,3,5,6.
+
+### INSERT
+
+`INSERT` lets you add rows to a table.
+
+The general syntax is:
+
+```SQL
+INSERT INTO table(column1, column2, ...)
+VALUES
+  (value1, value2, ...),
+  (value1, value2, ...)
+```
+
+You can also insert values from another table:
+
+```SQL
+INSERT INTO table(column1, column2, ...)
+SELECT column1, column2, ...
+FROM another_table
+WHERE condition;
+```
+
+Keep in mind, the inserted row values must match up for the table, including constraints.
+
+`SERIAL` columns don't need to be provided a value.
