@@ -683,3 +683,47 @@ WHERE condition;
 Keep in mind, the inserted row values must match up for the table, including constraints.
 
 `SERIAL` columns don't need to be provided a value.
+
+### UPDATE
+
+The `UPDATE` keyword lets you change the values of the columns in a table.
+
+The general syntax is:
+
+```SQL
+UPDATE table
+SET column1 = value1,
+    column2 = value2, ...
+WHERE condition;
+```
+
+You can reset everything without a `WHERE` condition:
+
+```SQL
+UPDATE account
+SET last_login = CURRENT_TIMESTAMP;
+```
+
+You can update based off another column:
+
+```SQL
+UPDATE account
+SET last_login = created_on;
+```
+
+You can use another table's values (an `UPDATE` join):
+
+```SQL
+UPDATE TableA
+SET original_col = TableB.new_col
+FROM TableB
+WHERE TableA.id = TableB.id;
+```
+
+You can also return the rows that were affected:
+
+```SQL
+UPDATE account
+SET last_login = created_on
+RETURNING account_id, last_login;
+```
