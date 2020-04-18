@@ -818,3 +818,17 @@ You can check that the column exists to avoid an error:
 ```SQL
 ALTER TABLE table_name DROP COLUMN IF EXISTS col_name;
 ```
+
+### CHECK
+
+The `CHECK` constraint lets you create more customized constraints that adhere to a certain condition, such as making sure that all inserted integer values fall below a certain thresold.
+
+The general syntax is:
+
+```SQL
+CREATE TABLE example(
+  ex_id SERIAL PRIMARY KEY,
+  age SMALLINT CHECK (age > 21),
+  parent_age SMALLINT CHECK (parent_age > age)
+);
+```
