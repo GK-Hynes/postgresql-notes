@@ -792,3 +792,29 @@ ALTER TABLE table_name ALTER COLUMN col_name SET NOT NULL;
 ```
 
 [See the docs for more `ALTER` commands](https://www.postgresql.org/docs/12/sql-altertable.html).
+
+### DROP
+
+`DROP` lets you completely remove a column from a table.
+
+In PostgreSQL, this will also automatically remove all of its indexes and constraints involving the column.
+
+However, it will not remove columns used in views, trigger, or stored procedures without the additional `CASCADE` clause.
+
+The general syntax is:
+
+```SQL
+ALTER TABLE table_name DROP COLUMN col_name;
+```
+
+To remove all dependencies:
+
+```SQL
+ALTER TABLE table_name DROP COLUMN col_name CASCADE;
+```
+
+You can check that the column exists to avoid an error:
+
+```SQL
+ALTER TABLE table_name DROP COLUMN IF EXISTS col_name;
+```
