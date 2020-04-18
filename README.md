@@ -727,3 +727,34 @@ UPDATE account
 SET last_login = created_on
 RETURNING account_id, last_login;
 ```
+
+### DELETE
+
+The `DELETE` clause lets you remove rows from a table.
+
+```SQL
+DELETE FROM table
+WHERE row_id = 1;
+```
+
+You can delete rows based on their presence in other tables. Think of this like a delete join.
+
+```SQL
+DELETE FROM tableA
+USING tableB
+WHERE tableA.id = tableB.id;
+```
+
+You can delete all rows from a table.
+
+```SQL
+DELETE FROM table;
+```
+
+Similar to the `UPDATE` command, you can add in a `RETURNING` call to return the rows that were removed.
+
+```SQL
+DELETE FROM job
+WHERE job_name = 'Engineer'
+RETURNING job_id, job_name
+```
