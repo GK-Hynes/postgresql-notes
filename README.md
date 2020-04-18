@@ -758,3 +758,37 @@ DELETE FROM job
 WHERE job_name = 'Engineer'
 RETURNING job_id, job_name
 ```
+
+### ALTER
+
+The `ALTER` clause lets you make changes to an existing table structure, such as:
+
+- Adding, dropping or renaming columns
+- Changing a column's data types
+- Setting `DEFAULT` values for a column
+- Adding `CHECK` constraints
+- Renaming the table
+
+```SQL
+ALTER TABLE table_name action;
+```
+
+Adding columns:
+
+```SQL
+ALTER TABLE table_name ADD COLUMN new_col TYPE;
+```
+
+Removing columns:
+
+```SQL
+ALTER TABLE table_name DROP COLUMN col_name;
+```
+
+Altering constraints:
+
+```SQL
+ALTER TABLE table_name ALTER COLUMN col_name SET NOT NULL;
+```
+
+[See the docs for more `ALTER` commands](https://www.postgresql.org/docs/12/sql-altertable.html).
