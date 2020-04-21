@@ -832,3 +832,61 @@ CREATE TABLE example(
   parent_age SMALLINT CHECK (parent_age > age)
 );
 ```
+
+## Conditional Expressions and Operators
+
+These keywords and functions let you add logic to your commands and workflows in SQL.
+
+### CASE
+
+You can use the `CASE` statement to only execute SQL code when certain conditions are met. This is silimar to `IF/ELSE` statements in other programming languages.
+
+There are two main ways to use a `CASE` statement: a general `CASE` or a `CASE` expression.
+
+Both methods can lead to the same results.
+
+The syntax for a general `CASE` statement is:
+
+```SQL
+CASE
+WHEN condition1 THEN result1
+WHEN condition2 THEN result2
+ELSE some_other_result
+END
+```
+
+For example, if you want to reward your first 100-200 customers:
+
+```SQL
+SELECT customer_id,
+CASE
+	WHEN (customer_id <= 100) THEN 'Premium'
+	WHEN (customer_id BETWEEN 100 AND 200) THEN 'Plus'
+	ELSE 'Normal'
+END AS customer_class
+FROM customer;
+```
+
+The `CASE` expression syntax first evaluates an expression then compares the result with each value in the `WHEN` clauses sequentially.
+
+```SQL
+CASE expression
+WHEN value1 THEN result1
+WHEN value2 THEN result2
+ELSE some_other_result
+END
+```
+
+For example, if you want to choose the winner of a competition:
+
+```SQL
+SELECT customer_id,
+CASE customer_id
+	WHEN 32 THEN 'Winner'
+	WHEN 26 THEN 'Second Place'
+	ELSE 'Normal'
+END AS competition_results
+FROM customer;
+```
+
+The general `CASE` syntax is more flexible and lets you do more conditional checks. The `CASE` expression syntax essentially checks for equality to the provided expression.
