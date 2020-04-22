@@ -890,3 +890,19 @@ FROM customer;
 ```
 
 The general `CASE` syntax is more flexible and lets you do more conditional checks. The `CASE` expression syntax essentially checks for equality to the provided expression.
+
+### COALESCE
+
+The `COALESCE` function accepts an unlimited number of arguments. It returns the first argument that is not null.
+
+If all arguments are null, the `COALESCE` function will return null.
+
+```SQL
+COALESCE (arg_1, arg_2, ... arg_n)
+```
+
+The `COALESCE` function becomes useful when querying a table that contains null values and substituting them with another value for the purpose of performing operations. For example, replaceing null with 0 before doing calculations.
+
+```SQL
+SELECT item, (price - COLAESCE(discount, 0)) AS final_price FROM table
+```
