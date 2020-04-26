@@ -950,3 +950,47 @@ NULLIF(SUM(CASE WHEN department = 'B' THEN 1 ELSE 0 END), 0)
 ) AS department_ratio
 FROM depts;
 ```
+
+### Views
+
+There are often specific combinations of tables and conditions that you find yourself using quite often for a project.
+
+Instead of having to perform the same query over and over again, you can create a view to quickly see this query with a simple call.
+
+```SQL
+CREATE VIEW customer_info AS
+SELECT first_name, last_name, address FROM customer
+INNER JOIN address
+ON customer.address_id = address.address_id
+```
+
+```SQL
+SELECT * FROM customer_info
+```
+
+A view is a database object that is essentially a stored query.
+
+A view can be accessed as a virtual table in PostgreSQL.
+
+A view does not store data physically, it simply stores the query.
+
+You can also update and alter existing views.
+
+```SQL
+CREATE OR REPLACE VIEW customer_info AS
+SELECT first_name, last_name, address, district FROM customer
+INNER JOIN address
+ON customer.address_id = address.address_id
+```
+
+You can rename views.
+
+```SQL
+ALTER VIEW customer_info RENAME to c_info
+```
+
+You can remove a view like dropping a table.
+
+```SQL
+DROP VIEW IF EXISTS customer_info
+```
