@@ -906,3 +906,29 @@ The `COALESCE` function becomes useful when querying a table that contains null 
 ```SQL
 SELECT item, (price - COLAESCE(discount, 0)) AS final_price FROM table
 ```
+
+### CAST
+
+The `CAST` operator lets you convert from one data type to another.
+
+Keep in mind, not every instance of a data type can be `CAST` to another data type. It must be reasonable to convert the data. For example, the string '5' to the integer 5. 'five' to 5 will not work.
+
+Syntax for `CAST` function:
+
+```SQL
+SELECT CAST('5' AS INTEGER)
+```
+
+PostgreSQL's `CAST` operator:
+
+```SQL
+SELECT '5'::INTEGER
+```
+
+Keep in mind that you can use this in a `SELECT` query with a column name instead of a single instance.
+
+For example, if the date column was set up using strings, you could `CAST` that to use timestamps.
+
+```SQL
+SELECT CAST(date AS TIMESTAMP) FROM table
+```
