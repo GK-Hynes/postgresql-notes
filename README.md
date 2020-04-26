@@ -932,3 +932,21 @@ For example, if the date column was set up using strings, you could `CAST` that 
 ```SQL
 SELECT CAST(date AS TIMESTAMP) FROM table
 ```
+
+### NULLIF
+
+The `NULLIF` function takes in 2 arguments and returns `NULL` if both are equal, otherwise it returns the first argument.
+
+```SQL
+NULLIF(arg1, arg2)
+```
+
+This is very useful in cases where a `NULL` value would cause an error or an unwanted result. For exmaple, to check against something being equal to 0.
+
+```SQL
+SELECT (
+SUM(CASE WHEN department = 'A' THEN 1 ELSE 0 END) /
+NULLIF(SUM(CASE WHEN department = 'B' THEN 1 ELSE 0 END), 0)
+) AS department_ratio
+FROM depts;
+```
