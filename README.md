@@ -372,6 +372,26 @@ SELECT * FROM TableA RIGHT OUTER JOIN TableB ON TableA.col_match = TableB.col_ma
 
 It depends on how you have the tables organized in your mind when it comes to choosing a `LEFT JOIN` or `RIGHT JOIN`.
 
+### UNIONS
+
+The `UNION` operator is used to combine the result-set of two or more `SELECT` statements.
+
+It basically serves to directly concatenate two results together, essentially "pasting" them together.
+
+```SQL
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+```
+
+For example, if you want to paste together all sales from two quarters.
+
+```SQL
+SELECT * FROM sales2020_Q1
+UNION
+SELECT * FROM sales2020_Q2;
+```
+
 ## More Advanced SQL Commands
 
 ### Timestamps and Extract
