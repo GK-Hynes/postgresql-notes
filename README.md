@@ -1014,3 +1014,15 @@ You can remove a view like dropping a table.
 ```SQL
 DROP VIEW IF EXISTS customer_info
 ```
+
+### Importing and Exporting Data
+
+pgAdmin has the ability to import information from external files. Right click on the table and select Import/Export.
+
+Things to keep in mind:
+
+Not every outside data file will work. Variations in formatting, macros, data types, etc. may prevent the Import command from reading the file, at which point you must edit your file to be compatible with SQL.
+
+You must provide the exact file path to your outside file, otherwise the Import command will fail to find the file.
+
+The Import command does not create a table for you. It assumes a table is already created. Currently there isn't an automated way within pgAdmin to create a table directly from a .csv file.
