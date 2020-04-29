@@ -17,3 +17,17 @@ SQL lets you manage data in a relational database.
 ### PostgreSQL
 
 PostgreSQL is a modern, open source, object-relational database management system.
+
+### Create a database
+
+`CREATE DATABASE datbase_name;`
+
+### Connecting to a database
+
+From the command line, use `psql -h HOSTNAME -p PORT -U USERNAME DATABASE_NAME`.
+
+Or just `psql \c DATABASE_NAME`.
+
+### Deleting a database
+
+`DROP DATABASE database_name;`
