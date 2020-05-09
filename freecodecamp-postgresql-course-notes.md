@@ -31,3 +31,37 @@ Or just `psql \c DATABASE_NAME`.
 ### Deleting a database
 
 `DROP DATABASE database_name;`
+
+### Creating a table
+
+```SQL
+CREATE TABLE table_name (
+  column_name data_type constraints
+)
+```
+
+[PostgreSQL docs for data types](https://www.postgresql.org/docs/12/datatype.html).
+
+You will want to make essential entries, such as id, first_name, `NOT NULL`. Entries that could be empty, such as email, can be left as nullable.
+
+```SQL
+CREATE TABLE person (
+  id BIGSERIAL PRIMARY KEY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  gender VARCHAR(50) NOT NULL,
+  date_of_birth DATE NOT NULL,
+  email VARCHAR(150)
+);
+```
+
+### Inserting records into a table
+
+```SQL
+INSERT INTO person (
+  first_name,
+  last_name,
+  gender,
+  date_of_birth)
+VALUES ('Lucy', 'Jones', 'FEMALE, DATE '1990-06-03');
+```
