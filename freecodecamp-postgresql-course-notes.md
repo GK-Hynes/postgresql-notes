@@ -73,3 +73,15 @@ Use `DISTINCT` to only display unique values when querying.
 ```SQL
 SELECT DISTINCT country_of_birth FROM person ORDER BY country_of_birth;
 ```
+
+### OFFSET
+
+You can use the `OFFSET` keyword to skip a certain number of results when performing a query.
+
+### FETCH
+
+The `FETCH` keyword lets you limit the number of rows returned.
+
+```SQL
+SELECT * FROM person FETCH FIRST 5 ROW ONLY;
+```
