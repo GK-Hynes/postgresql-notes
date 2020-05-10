@@ -65,3 +65,11 @@ INSERT INTO person (
   date_of_birth)
 VALUES ('Lucy', 'Jones', 'FEMALE, DATE '1990-06-03');
 ```
+
+### Distinct
+
+Use `DISTINCT` to only display unique values when querying.
+
+```SQL
+SELECT DISTINCT country_of_birth FROM person ORDER BY country_of_birth;
+```
