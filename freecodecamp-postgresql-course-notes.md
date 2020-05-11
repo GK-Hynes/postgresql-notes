@@ -85,3 +85,29 @@ The `FETCH` keyword lets you limit the number of rows returned.
 ```SQL
 SELECT * FROM person FETCH FIRST 5 ROW ONLY;
 ```
+
+### Matching characters
+
+When using the `LIKE` keyword, you can use `%` for one or more of any character or `_` for one instance of any character.
+
+```SQL
+SELECT * FROM person WHERE email LIKE '____@gmail.com'
+```
+
+### GROUP BY
+
+`GROUP BY` lets you group your results based on a column. For each group you can use an aggregate function, such as `SUM()` to calculate the sum of items or `COUNT()` to get the number of items in the groups.
+
+```SQL
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth;
+```
+
+### HAVING
+
+`HAVING` can be used in conjunction with `GROUP BY` to filter out rows that do/do not match a specified condition.
+
+```SQL
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) >= 5 ORDER BY country_of_birth;
+```
+
+### Aggregate functions
