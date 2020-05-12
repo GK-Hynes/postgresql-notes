@@ -117,3 +117,11 @@ The `COALESCE` keyword lets you have a default value in case the value searched 
 ```SQL
 SELECT COALESCE(email, 'Email not provided') FROM person;
 ```
+
+### EXTRACT
+
+`EXTRACT` lets you extract a specific value from date/time values.
+
+```SQL
+SELECT EXTRACT(YEAR FROM NOW());
+```
