@@ -110,4 +110,10 @@ SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth;
 SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) >= 5 ORDER BY country_of_birth;
 ```
 
-### Aggregate functions
+### COALESCE
+
+The `COALESCE` keyword lets you have a default value in case the value searched for is not present.
+
+```SQL
+SELECT COALESCE(email, 'Email not provided') FROM person;
+```
