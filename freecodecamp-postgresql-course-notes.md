@@ -125,3 +125,29 @@ SELECT COALESCE(email, 'Email not provided') FROM person;
 ```SQL
 SELECT EXTRACT(YEAR FROM NOW());
 ```
+
+### ON CONFLICT
+
+The `ON CONFLICT` clause lets you specify an alternative action in case you try to insert a row that would violate a unique constraint.
+
+`ON CONFLICT DO NOTHING` avoids inserting the row.
+
+`ON CONFLICT DO UPDATE` updates the existing row with the row being inserted.
+
+### Creating relationships between tables
+
+To create a relationship between two tables, define a foreign key:
+
+```SQL
+create table person (
+  id BIGSERIAL NOT NULL PRIMARY KEY,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	gender VARCHAR(7) NOT NULL,
+	email VARCHAR(100),
+	date_of_birth DATE NOT NULL,
+	country_of_birth VARCHAR(50) NOT NULL,
+	car_id BIGINT REFERENCES car (id),
+	UNIQUE(car_id)
+);
+```
