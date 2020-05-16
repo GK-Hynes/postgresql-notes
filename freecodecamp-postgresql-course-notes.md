@@ -159,3 +159,23 @@ To delete a record with a foreign key constraint, first update the record to rem
 ```SQL
 \copy (YOUR_QUERY) TO FILE_PATH DELIMITER ',' CSV HEADER;
 ```
+
+### Extensions
+
+Extensions allow features to be added to PostgreSQL.
+
+To view a list of them, use:
+
+```SQL
+SELECT * FROM pg_available_extensions;
+```
+
+For example, `plv8` lets you write JavaScript functions, `uuid-ossp` lets you generate universally unique identifiers.
+
+To create an extension:
+
+```SQL
+CREATE EXTENSION IF NOT EXISTS 'uuid-ossp'
+```
+
+To see a list of available functions, use `/df`
