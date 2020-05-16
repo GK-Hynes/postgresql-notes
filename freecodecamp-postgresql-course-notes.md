@@ -151,3 +151,11 @@ create table person (
 	UNIQUE(car_id)
 );
 ```
+
+To delete a record with a foreign key constraint, first update the record to remove the foreign key constraint.
+
+### Exporting query results to CSV
+
+```SQL
+\copy (YOUR_QUERY) TO FILE_PATH DELIMITER ',' CSV HEADER;
+```
