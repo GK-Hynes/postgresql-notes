@@ -179,3 +179,20 @@ CREATE EXTENSION IF NOT EXISTS 'uuid-ossp'
 ```
 
 To see a list of available functions, use `/df`
+
+For example, you could use a `UUID` instead of a `BIGSERIAL` to give an entry a unique id.
+
+```SQL
+CREATE TABLE person (
+  person_id UUID NOT NULL PRIMARY KEY,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	gender VARCHAR(50) NOT NULL,
+	email VARCHAR(100),
+	date_of_birth DATE NOT NULL,
+	country_of_birth VARCHAR(50) NOT NULL
+);
+
+INSERT INTO person (person_id, first_name, last_name, gender, email, date_of_birth, country_of_birth)
+VALUES (uuid_generate_v4(), 'Fernanda', 'Brabazon', 'Female', 'fernandab87@gmail.com', '1987-10-28', 'Canada');
+```
